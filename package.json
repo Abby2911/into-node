@@ -1,0 +1,25 @@
+{
+    "name": "dwpc1-2023a",
+    "version": "1.0.0",
+    "description": "Proyecto de aprendizaje de la materia de DWPC1",
+    "type": "module",
+    "engines": {
+      "node": "19.x",
+      "npm": "9.x"
+    },
+    "main": "index.js",
+    "scripts": {
+      "start": "node ./"
+    },
+    "repository": {
+      "type": "git",
+      "url": "#"
+    },
+    "keywords": [
+      "node",
+      "expressjs",
+      "ITGAM"
+    ],
+    "author": "Vianney Reyes",
+    "license": "MIT"
+  }
