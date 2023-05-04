@@ -100,11 +100,11 @@ export default async (req, res) => {
             }
             break;
 
-        case "/html":
-            const htmlPath = path.join(__dirname, 'views');
+        case "/index":
+            const indexPath = path.join(__dirname, 'views');
             try {
-                const data = await fs.readFile(htmlPath);
-                res.writeHead(200, { 'Content-Type': 'image/x-icon' });
+                const data = await fs.readFile(indexPath);
+                res.writeHead(200, { 'Content-Type': 'index.html' });
                 res.end(data);
             } catch (err) {
                 console.error(err);
@@ -121,6 +121,51 @@ export default async (req, res) => {
                 res.end();
             }
             break;
+
+        case "/author":
+            const authorPath = path.join(__dirname, 'views');
+            try {
+                const data = await fs.readFile(authorPath);
+                res.writeHead(200, { 'Content-Type': 'author.html' });
+                res.end(data);
+            } catch (err) {
+                console.error(err);
+                // Peticion raiz
+                // Estableciendo cabeceras
+                res.setHeader('Content-Type', 'text/html');
+                // Escribiendo la respuesta
+                res.write(``);
+                console.log(`📣 Respondiendo: 500 ${req.url} ${req.method}`);
+                console.log(`📣 ERROR: 500 ${err.message}`);
+                // Estableciendo codigo de respuesta
+                res.statusCode = 500;
+                // Cerrando la comunicacion
+                res.end();
+            }
+            break;
+
+        case "/index":
+            const htmlPath = path.join(__dirname, 'views');
+            try {
+                const data = await fs.readFile(htmlPath);
+                res.writeHead(200, { 'Content-Type': 'index.html' });
+                res.end(data);
+            } catch (err) {
+                console.error(err);
+                // Peticion raiz
+                // Estableciendo cabeceras
+                res.setHeader('Content-Type', 'text/html');
+                // Escribiendo la respuesta
+                res.write(``);
+                console.log(`📣 Respondiendo: 500 ${req.url} ${req.method}`);
+                console.log(`📣 ERROR: 500 ${err.message}`);
+                // Estableciendo codigo de respuesta
+                res.statusCode = 500;
+                // Cerrando la comunicacion
+                res.end();
+            }
+            break;
+
 
         default:
             // Peticion raiz
